@@ -4,8 +4,10 @@
 name: Maven Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ "modifica-maven" ]
+  pull_request:
+    branches: [ "modifica-maven" ]
 
 jobs:
   build:

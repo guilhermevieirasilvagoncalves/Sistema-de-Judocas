@@ -73,6 +73,12 @@ public class AlunoDaoTest {
 			alunoDao.delete(each);
 		}
 		assertEquals(0, alunoDao.list().size());
+
+		List<Entidade> e11 = entidadeDao.list();
+		for (Entidade each : e11) {
+			entidadeDao.delete(each);
+		}
+		assertEquals(0, entidadeDao.list().size());
 	}
 	
 	
@@ -119,6 +125,22 @@ public class AlunoDaoTest {
 		entidadeDao.delete(e1);
 
 		assertEquals(0, entidadeDao.list().size());
+	}
+
+	@Test
+	public void deleteAluno() throws Exception{ // Teste ID 5
+
+		clearDatabase();
+		assertEquals(0, alunoDao.list().size());
+		
+		alunoDao.save(aluno);
+		assertEquals(1, alunoDao.list().size());
+
+		Aluno a1 = alunoDao.get(aluno);
+
+		alunoDao.delete(a1);
+
+		assertEquals(0, alunoDao.list().size());
 	}
 	
 	// @Test

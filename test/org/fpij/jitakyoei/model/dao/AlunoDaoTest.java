@@ -73,6 +73,12 @@ public class AlunoDaoTest {
 			alunoDao.delete(each);
 		}
 		assertEquals(0, alunoDao.list().size());
+
+		List<Entidade> e11 = entidadeDao.list();
+		for (Entidade each : e11) {
+			entidadeDao.delete(each);
+		}
+		assertEquals(0, entidadeDao.list().size());
 	}
 	
 	

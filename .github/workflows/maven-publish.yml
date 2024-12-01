@@ -5,9 +5,9 @@ name: Maven Package
 
 on:
   push:
-    branches: [ "modifica-maven" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "modifica-maven" ]
+    branches: [ "master" ]
 
 jobs:
   build:

@@ -120,6 +120,22 @@ public class AlunoDaoTest {
 
 		assertEquals(0, entidadeDao.list().size());
 	}
+
+	@Test
+	public void deleteAluno() throws Exception{ // Teste ID 5
+
+		clearDatabase();
+		assertEquals(0, alunoDao.list().size());
+		
+		alunoDao.save(aluno);
+		assertEquals(1, alunoDao.list().size());
+
+		Aluno a1 = alunoDao.get(aluno);
+
+		alunoDao.delete(a1);
+
+		assertEquals(0, alunoDao.list().size());
+	}
 	
 	// @Test
 	// public void testSearchAluno() throws Exception{

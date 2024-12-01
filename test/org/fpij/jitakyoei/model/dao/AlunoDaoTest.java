@@ -104,30 +104,24 @@ public class AlunoDaoTest {
 		assertEquals("TesteUpdate", a2.getFiliado().getNome());
 		assertEquals(1, alunoDao.list().size());
 	}
-	
-	@Test
-	public void testListarEAdicionarAlunos(){
 
-		assertTrue( true );
-		// int qtd = alunoDao.list().size();
+	@Test
+	public void deleteAluno() throws Exception{ // Teste ID 6
+
+		clearDatabase();
+		assertEquals(0, alunoDao.list().size());
 		
-		// alunoDao.save(new Aluno());
-		// assertEquals(qtd+1, alunoDao.list().size());
-		
-		// alunoDao.save(new Aluno());
-		// assertEquals(qtd+2, alunoDao.list().size());
-		
-		// alunoDao.save(new Aluno());
-		// assertEquals(qtd+3, alunoDao.list().size());
-		
-		// alunoDao.save(new Aluno());
-		// assertEquals(qtd+4, alunoDao.list().size());
-		
-		// clearDatabase();
-		// assertEquals(0, alunoDao.list().size());
-		
-		// alunoDao.save(new Aluno());
-		// assertEquals(1, alunoDao.list().size());
+		alunoDao.save(aluno);
+		assertEquals(1, alunoDao.list().size());
+		assertEquals("Aécio", aluno.getFiliado().getNome());
+
+		assertEquals(1, alunoDao.list().size());
+
+		Aluno a1 = alunoDao.get(aluno);
+
+		alunoDao.delete(a1);
+
+		assertEquals(0, alunoDao.list().size());
 	}
 	
 	@Test

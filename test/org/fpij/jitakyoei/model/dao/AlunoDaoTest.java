@@ -120,6 +120,15 @@ public class AlunoDaoTest {
 
 		assertEquals(0, entidadeDao.list().size());
 	}
+
+	@Test
+	public void validarCNPJ() {
+	
+		Entidade entidade_test = new Entidade();
+	        entidade_test.setCnpj("12984024000101");
+	
+	        assertFalse(entidade_test.getCnpj().matches("[a-zA-Z]+"));
+	}
 	
 	// @Test
 	// public void testSearchAluno() throws Exception{

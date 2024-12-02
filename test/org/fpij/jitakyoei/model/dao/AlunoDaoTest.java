@@ -24,6 +24,7 @@ public class AlunoDaoTest {
 	private static Filiado f1;
 	private static Filiado filiadoProf;
 	private static Professor professor;
+	private static DAO<Professor> professorDao;
 	
 	@BeforeClass
 	public static void setUp(){

@@ -65,11 +65,12 @@ public class AlunoDaoTest {
 		
 		alunoDao = new DAOImpl<Aluno>(Aluno.class);
 		entidadeDao = new DAOImpl<Entidade>(Entidade.class);
+		professorDao = new DAOImpl<Professor>(Professor.class);
 	}
 
 	public static void clearDatabase(){
-		List<Aluno> all = alunoDao.list();
-		for (Aluno each : all) {
+		List<Aluno> a11 = alunoDao.list();
+		for (Aluno each : a11) {
 			alunoDao.delete(each);
 		}
 		assertEquals(0, alunoDao.list().size());
@@ -79,6 +80,12 @@ public class AlunoDaoTest {
 			entidadeDao.delete(each);
 		}
 		assertEquals(0, entidadeDao.list().size());
+
+		List<Professor> p11 = professorDao.list();
+		for (Professor each : p11) {
+			professorDao.delete(each);
+		}
+		assertEquals(0, professorDao.list().size());
 	}
 	
 	
@@ -141,6 +148,22 @@ public class AlunoDaoTest {
 		alunoDao.delete(a1);
 
 		assertEquals(0, alunoDao.list().size());
+	}
+
+	@Test
+	public void deleteProfessor() throws Exception{ // Teste ID 8
+
+		clearDatabase();
+		assertEquals(0, professorDao.list().size());
+		
+		professorDao.save(professor);
+		assertEquals(1, professorDao.list().size());
+
+		Professor p1 = professorDao.get(professor);
+
+		professorDao.delete(p1);
+
+		assertEquals(0, professorDao.list().size());
 	}
 	
 	// @Test

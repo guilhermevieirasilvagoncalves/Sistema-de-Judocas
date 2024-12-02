@@ -182,6 +182,21 @@ public class AlunoDaoTest {
 
 		assertEquals(0, professorDao.list().size());
 	}
+
+	@Test
+    	public void testUpdateAluno() throws Exception {
+        	clearDatabase();
+    
+        	alunoDao.save(aluno);
+        	assertEquals(1, alunoDao.list().size());
+    
+        	Aluno a1 = alunoDao.get(aluno);
+        	a1.getFiliado().setNome("Aluno teste");
+        	alunoDao.save(a1);
+    
+        	Aluno a2 = alunoDao.get(a1);
+        	assertEquals("Aluno teste", a2.getFiliado().getNome());
+    	}
 	
 	// @Test
 	// public void testSearchAluno() throws Exception{

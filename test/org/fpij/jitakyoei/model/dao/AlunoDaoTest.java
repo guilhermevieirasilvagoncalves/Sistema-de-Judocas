@@ -80,6 +80,22 @@ public class AlunoDaoTest {
 		}
 		assertEquals(0, entidadeDao.list().size());
 	}
+
+	@Test
+	public void testUpdateEntidade() throws Exception {
+	    clearDatabase();
+	
+	    entidadeDao.save(entidade);
+	    assertEquals(1, entidadeDao.list().size());
+	
+	    Entidade e1 = entidadeDao.get(entidade);
+	    e1.setNome("Academia Teste");
+	    entidadeDao.save(e1);
+	
+	    Entidade e2 = entidadeDao.get(e1);
+	    assertEquals("Academia Teste", e2.getNome());
+	}
+
 	
 	
 	// @Test
